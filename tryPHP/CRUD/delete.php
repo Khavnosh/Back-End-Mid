@@ -2,7 +2,7 @@
     if (isset($_GET['id'])) {
         include("connect.php");
         $id = $_GET['id'];
-        $query = "DELETE FROM movies WHERE id=$id";
+        $query = "DELETE FROM books WHERE id=$id";
 
         if (mysqli_query($conn, $query)) {
             header('Location: index.php');

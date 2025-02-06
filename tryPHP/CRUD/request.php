@@ -28,7 +28,7 @@
         $price = $_POST['price'];
         $pages = $_POST['pages'];
 
-        $query = "UPDATE movies SET title='$title', author='$author', publisher='$publisher', 
+        $query = "UPDATE books SET title='$title', author='$author', publisher='$publisher', 
         publish_date='$publish_date', price='$price', pages='$pages' WHERE id=$id";
 
         if (mysqli_query($conn, $query)) {

@@ -9,7 +9,7 @@
   <body>
     <div class="container">
         <div class="d-flex justify-content-between my-4">
-            <h1>Edit Movies</h1>
+            <h1>Edit Books</h1>
 
             <a href="index.php" class="btn btn-primary">Back</a>
         </div>
@@ -17,14 +17,14 @@
             include("connect.php");
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
-                $query = "SELECT * FROM movies WHERE id=$id";
+                $query = "SELECT * FROM books WHERE id=$id";
                 $result = mysqli_query($conn, $query);
                 $data = mysqli_fetch_array($result);
             }
         ?>
 
         <form action="request.php" method="post">
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label for="title" class="form-label">
                     Title
                 </label>
@@ -43,7 +43,45 @@
                 <input type="number" name="duration" id="duration" class="form-control" value="<?php echo $data['duration'] ?>">
             </div>
             <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
-            <input type="submit" value="Add" name="edit" class="btn btn-success">
+            <input type="submit" value="Add" name="edit" class="btn btn-success"> -->
+            <div class="mb-3">
+                <label for="title" class="form-label">
+                    Book Title
+                </label>
+                <input type="text" name="title" id="title" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="studio" class="form-label">
+                    Author
+                </label>
+                <input type="text" name="studio" id="studio" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="publisher" class="form-label">
+                    Publisher
+                </label>
+                <input type="text" name="duration" id="duration" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="publish_date" class="form-label">
+                    Publish Date
+                </label>
+                <input type="date" name="duration" id="duration" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">
+                    Price (IDR)
+                </label>
+                <input type="number" name="duration" id="duration" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="pages" class="form-label">
+                    Pages
+                </label>
+                <input type="number" name="duration" id="duration" class="form-control">
+            </div>
+            <input type="submit" value="Add" name="create" class="btn btn-success">
+            <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
         </form>
     </div>
 

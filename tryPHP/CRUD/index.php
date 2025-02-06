@@ -30,7 +30,7 @@
             <tbody>
                 <?php 
                     include("connect.php");
-                    $query = "SELECT * FROM movies";
+                    $query = "SELECT * FROM books";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_array($result)) { 
                 ?>
