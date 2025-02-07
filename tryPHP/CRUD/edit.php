@@ -51,34 +51,22 @@
                 <input type="text" name="title" id="title" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="studio" class="form-label">
+                <label for="author" class="form-label">
                     Author
                 </label>
-                <input type="text" name="studio" id="studio" class="form-control">
+                <input type="text" name="author" id="author" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="publisher" class="form-label">
                     Publisher
                 </label>
-                <input type="text" name="duration" id="duration" class="form-control">
+                <input type="text" name="publisher" id="publisher" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="publish_date" class="form-label">
-                    Publish Date
-                </label>
-                <input type="date" name="duration" id="duration" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="price" class="form-label">
-                    Price (IDR)
-                </label>
-                <input type="number" name="duration" id="duration" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="pages" class="form-label">
+                <label for="num_of_page" class="form-label">
                     Pages
                 </label>
-                <input type="number" name="duration" id="duration" class="form-control">
+                <input type="number" name="num_of_page" id="num_of_page" class="form-control">
             </div>
             <input type="submit" value="Add" name="create" class="btn btn-success">
             <input type="hidden" name="id" value="<?php echo $data['id'] ?>">

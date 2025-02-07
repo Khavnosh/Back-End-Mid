@@ -21,8 +21,6 @@
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
                     <th scope="col">Publisher</th>
-                    <th scope="col">Publish Date</th>
-                    <th scope="col">Price</th>
                     <th scope="col">Pages</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -39,9 +37,7 @@
                     <td><?php echo $row['title'] ?></td>
                     <td><?php echo $row['author'] ?></td>
                     <td><?php echo $row['publisher'] ?></td>
-                    <td><?php echo $row['publish_date'] ?></td>
-                    <td><?php echo $row['price'] ?></td>
-                    <td><?php echo $row['pages'] ?></td>
+                    <td><?php echo $row['num_of_page'] ?></td>
                     <td>
                         <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">Edit</a>
                         <a href="delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a>

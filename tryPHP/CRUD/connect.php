@@ -1,8 +1,8 @@
 <?php 
     $dbHost = "localhost";
-    $dbUser = "root";
-    $dbPass = "";
-    $dbName = "sesi6";
+    $dbUser = "bncc_backend_group";
+    $dbPass = "bncc01244";
+    $dbName = "books_data";
 
     $conn = mysqli_connect(
         $dbHost, 
@@ -12,6 +12,6 @@
     );
     
     if (!$conn) {
-        die("Something went Wrong");
+        die("Connecting to database has failed");
     } 
 ?>
