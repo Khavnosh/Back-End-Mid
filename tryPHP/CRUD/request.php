@@ -1,6 +1,7 @@
 <?php 
     include("connect.php"); 
 
+    //Login Request
     if(isset($_GET['login'])) {
         $username = $_GET['username'];
         $password = $_GET['password'];
@@ -17,11 +18,16 @@
                         echo("Login Success");
                         session_start();
                         $_SESSION["USERNAME"] = $username;
-                        $_SESSION["USER_ID"] = $row['id'];
+                        $_SESSION["userid"] = $row['id'];
+                        $message = "Invalid username or password, please try again";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
                         header("Location: index.php");
                     } 
                     else {
+                        session_start();
+                        $_SESSION["invalid-data"] = 'Yes';
                         echo("Login Failed");
+                        header("Location: ../login-form.php");
                     }
                 ?>
             </tr>
@@ -31,6 +37,7 @@
             <?php 
     }
 
+    //Create Book Entry Request
     if(isset($_POST['create'])) {    
         include("index.php"); 
         $title = $_POST['title'];
@@ -48,6 +55,8 @@
         }
     }
 
+
+    //Edit entry request
     if(isset($_POST['edit'])) {
         $id = $_POST['id'];
         $title = $_POST['title'];

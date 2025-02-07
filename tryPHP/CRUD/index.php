@@ -27,6 +27,7 @@
                 <?php 
                     include("connect.php");
                     session_start();
+                    //Get data for books with current user's ID
                     if (isset($_SESSION['userid'])) {
                         $userid = $_SESSION['userid'];
                         $query = "SELECT * FROM books WHERE user_id = '$userid'";

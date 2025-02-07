@@ -49,17 +49,20 @@ $conn->close();
 <html>
 <head>
     <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <h2>Register</h2>
+<div class="d-flex justify-content-between my-4">
+            <h1>Register</h1>
+        </div>
     <form method="post" action="register.php">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-        <input type="submit" value="Register">
+        <label for="username" class="form-label">Username:</label><br>
+        <input type="text" id="username" name="username" required class="form-control"><br>
+        <label for="email" class="form-label">Email:</label><br>
+        <input type="email" id="email" name="email" required class="form-control"><br>
+        <label for="password" class="form-label">Password:</label><br>
+        <input type="password" id="password" name="password" required class="form-control"><br><br>
+        <input type="submit" value="Register" class="btn btn-success">
     </form>
 </body>
 </html>
