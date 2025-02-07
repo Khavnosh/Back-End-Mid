@@ -13,23 +13,22 @@
     <div class="container">
         <div class="d-flex justify-content-between my-4">
             <h1>Login</h1>
-            <a href="index.php" class="btn btn-secondary d-flex p-2 h-25 back-button">Back</a>
         </div>
 
-        <form action="request.php" method="post">
+        <form action="CRUD/request.php" method="get">
             <div class="mb-3">
-                <label for="title" class="form-label">
+                <label for="username" class="form-label">
                     Username
                 </label>
-                <input type="text" name="title" id="title" class="form-control">
+                <input type="text" name="username" id="username" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="author" class="form-label">
+                <label for="password" class="form-label">
                     Password
                 </label>
-                <input type="text" name="author" id="author" class="form-control">
+                <input type="text" name="password" id="password" class="form-control">
             </div>
-            <input type="submit" value="Add" name="login" class="btn btn-success">
+            <input type="submit" value="Login" name="login" class="btn btn-success">
         </form>
     </div>
 

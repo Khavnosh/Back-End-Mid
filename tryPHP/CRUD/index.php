@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+$username = $_SESSION["USERNAME"]; 
+$userid = $_SESSION["USER_ID"];
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -31,6 +39,7 @@
                     $query = "SELECT * FROM books";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_array($result)) { 
+                        if($row['user_id'] == $userid){
                 ?>
                 <tr>
                     <th scope="row"><?php echo $row['id'] ?></th>
@@ -45,6 +54,7 @@
                     </td>
                 </tr>
                 <?php 
+                        }
                     }
                 ?>
             </tbody>
