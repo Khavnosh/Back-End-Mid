@@ -1,7 +1,7 @@
 <?php 
     $dbHost = "localhost";
-    $dbUser = "bncc_backend_group";
-    $dbPass = "bncc01244";
+    $dbUser = "root";
+    $dbPass = "";
     $dbName = "books_data";
 
     $conn = mysqli_connect(
