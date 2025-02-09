@@ -1,9 +1,9 @@
 <?php
 
-    $dbHost = "localhost";
-    $dbUser = "bncc_backend_group";
-    $dbPass = "bncc01244";
-    $dbName = "books_data";
+    $dbHost = 'localhost';
+    $dbUser = 'bncc_backend_group';
+    $dbPass = 'bncc01244';
+    $dbName = 'books_data';
 
 $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 
@@ -11,12 +11,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // Registration logic
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST["username"];
     $email = $_POST["email"];
     if ($stmt === false) {
@@ -48,21 +44,29 @@ $conn->close();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="d-flex justify-content-between my-4">
-            <h1>Register</h1>
-        </div>
-    <form method="post" action="register.php">
-        <label for="username" class="form-label">Username:</label><br>
-        <input type="text" id="username" name="username" required class="form-control"><br>
-        <label for="email" class="form-label">Email:</label><br>
-        <input type="email" id="email" name="email" required class="form-control"><br>
-        <label for="password" class="form-label">Password:</label><br>
-        <input type="password" id="password" name="password" required class="form-control"><br><br>
-        <input type="submit" value="Register" class="btn btn-success">
-    </form>
+    <div class="form-container">
+        <form method="post" action="register.php" class="registration-form"> 
+            <h1>Registration</h1>
+            <p>Please fill in this form to create an account.</p><br>
+            <hr><br>
+            <div class="form-group">
+                <input type="text" placeholder="Enter Email" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+            </div>
+            <div class="form-group">       
+                <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+            </div>
+            <hr><br>
+            <p>By creating an account you agree to our Terms & Privacy.</p><br>
+            <button type="submit" class="registerbtn">Register</button>
+        </form>
+        <p class="haveacc">Already have an account? <a href="login-form.php">Sign in</a>.</p>
+    </div>
 </body>
 </html>
