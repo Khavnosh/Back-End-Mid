@@ -1,72 +1,58 @@
-<?php
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register
 
-    $dbHost = 'localhost';
-    $dbUser = 'bncc_backend_group';
-    $dbPass = 'bncc01244';
-    $dbName = 'books_data';
-
-$conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Registration logic
-if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    if ($stmt === false) {
-        die("Error preparing statement: " . $conn->error);
-    }
-
-    $stmt->bind_param("sss", $username, $email, $password);
-
-    if ($stmt->error) {
-        die("Error binding parameters: " . $stmt->error);
-    }
-
-    $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $username, $email, $password);
-
-    if ($stmt->execute()) {
-        echo "Registration successful!";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    $stmt->close();
-}
-
-$conn->close();
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Registration</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="form-container">
-        <form method="post" action="register.php" class="registration-form"> 
-            <h1>Registration</h1>
-            <p>Please fill in this form to create an account.</p><br>
-            <hr><br>
-            <div class="form-group">
-                <input type="text" placeholder="Enter Email" name="email" id="email" required>
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <div class="d-flex justify-content-between my-4">
+            <h1>Register</h1>
+        </div>
+        <form action="CRUD/request.php" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">
+                    Username
+                </label>
+                <input type="text" name="username" id="username" class="form-control">
             </div>
-            <div class="form-group">
-                <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+            <div class="mb-3">
+                <label for="password" class="form-label">
+                    Password
+                </label>
+                <input type="text" name="password" id="password" class="form-control" required minlength="8">
             </div>
-            <div class="form-group">       
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+            <div class="mb-3">
+                <label for="password" class="form-label">
+                    Confirm Password
+                </label>
+                <input type="text" name="repassword" id="repassword" class="form-control" required minlength="8">
             </div>
-            <hr><br>
-            <p>By creating an account you agree to our Terms & Privacy.</p><br>
-            <button type="submit" class="registerbtn">Register</button>
+            <input type="submit" value="Register" name="register" class="btn btn-success">
         </form>
-        <p class="haveacc">Already have an account? <a href="login-form.php">Sign in</a>.</p>
     </div>
-</body>
+    <!-- <?php
+    // //Get information if this page was accessed from a failed request
+    //     session_start();
+    //     if(($_SESSION['invalid-data']) == 'Yes'){
+    //         $_SESSION['invalid-data'] = 'No';
+    //         $msg = "Username or Password Invalid, Please Try Again.";
+    //         echo "<script type='text/javascript'>alert('$msg');</script>";
+    //     }
+    ?> -->
+     <?php
+    //Get information if this page was accessed from a failed request
+        session_start();
+        if(($_SESSION['invalid-data']) == 'Yes'){
+            $_SESSION['invalid-data'] = 'No';
+            $msg = "Passwords do not match, Please Try Again.";
+            echo "<script type='text/javascript'>alert('$msg');</script>";
+        }
+    ?>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
 </html>
