@@ -80,11 +80,7 @@
 
     if(isset($_POST['register'])){
 
-            // $username = $_POST["username"];
-            // $email = $_POST["email"];
             $sql2 = "SELECT * FROM user_data";
-            // $sql = "INSERT INTO user_data (username, id, password) VALUES (?, ?, ?)";
-            // $stmt = $conn->prepare($sql);
             $user_id_largest = 0;
             $result = mysqli_query($conn, $sql2);
             while($row = mysqli_fetch_array($result)) { 
@@ -108,8 +104,6 @@
                     } else {
                         die("Something went wrong");
                     }
-                // session_start();
-                // $_SESSION["invalid-data"] = 'No';
                 header("Location: ../login-form.php");
             } 
             else {
@@ -121,35 +115,6 @@
 
             $query = "INSERT INTO user_data(id, username, password) 
             VALUES('$user_id_to_write', '$username', '$password')";
-            // header("Location: index.php");
-            // echo(':)');
-
-            // if (mysqli_query($conn, $query)) {
-            //     header("Location: index.php");
-            // } else {
-            //     die("Something went wrong");
-            // }
-        
-        //     if ($stmt === false) {
-        //         die("Error preparing statement: " . $conn->error);
-        //     }
-        
-        //     $stmt->bind_param("sss", $user_id_to_write, $username, $password);
-        
-        //     if ($stmt->error) {
-        //         die("Error binding parameters: " . $stmt->error);
-        //     }
-        
-        //     $stmt->bind_param("sss", $username, $password);
-        
-        //     if ($stmt->execute()) {
-        //         echo "Registration successful!";
-        //     } else {
-        //         echo "Error: " . $sql . "<br>" . $conn->error;
-        //     }
-        
-        //     $stmt->close();
-        // }
         
     }
 ?>

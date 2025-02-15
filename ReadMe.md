@@ -1,0 +1,1 @@
+<h1>Please Enable Apache and MySQL in XAMPP before testing</h1>

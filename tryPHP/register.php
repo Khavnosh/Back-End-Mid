@@ -1,58 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Registration</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="form-container">
+            <form action="CRUD/request.php" method="post" class="form" autocomplete="off">
+                <h1>Registration</h1>
+                <p>Please fill in this form to create an account.</p><br>
+                <hr><br>
+                <div class="form-group">
+                    <input type="text" placeholder="Enter Username" name="username" id="username" required>
+                </div>
+                <div class="form-group">
+                    <div class="pw-wrap">
+                        <input type="password" name="password" id="password" required minlength="8" placeholder="Enter Password">
+                        <img src="./CRUD/assets/pwEnabled.svg" alt="Show Password" id="eyeicon">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="pw-wrap">
+                        <input type="password" name="repassword" id="repassword" required minlength="8" placeholder="Repeat Password">
+                        <img src="./CRUD/assets/pwEnabled.svg" alt="Show Password" id="eyeicon2">
+                    </div>
+                </div>
+                <hr><br>
+                <p>By creating an account you agree to our <u>Terms & Privacy</u>.</p><br>
+                <button type="submit" name="register" class="button">Register</button>
+                <script>
+                    let eyeicon = document.getElementById('eyeicon');
+                    let password = document.getElementById('password');
 
-    </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container">
-        <div class="d-flex justify-content-between my-4">
-            <h1>Register</h1>
+                    eyeicon.onclick = function() {
+                        if(password.type == "password") {
+                            password.type = "text";
+                            eyeicon.src = "./CRUD/assets/pwHidden.svg";
+                        } else {
+                            password.type = "password";
+                            eyeicon.src = "./CRUD/assets/pwEnabled.svg";
+                        }
+                    }
+
+                    let eyeicon2 = document.getElementById('eyeicon2');
+                    let repassword = document.getElementById('repassword');
+
+                    eyeicon2.onclick = function() {
+                        if(repassword.type == "password") {
+                            repassword.type = "text";
+                            eyeicon2.src = "./CRUD/assets/pwHidden.svg";
+                        } else {
+                            repassword.type = "password";
+                            eyeicon2.src = "./CRUD/assets/pwEnabled.svg";
+                        }
+                    }
+                </script>
+            </form>
         </div>
-        <form action="CRUD/request.php" method="post">
-            <div class="mb-3">
-                <label for="username" class="form-label">
-                    Username
-                </label>
-                <input type="text" name="username" id="username" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">
-                    Password
-                </label>
-                <input type="text" name="password" id="password" class="form-control" required minlength="8">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">
-                    Confirm Password
-                </label>
-                <input type="text" name="repassword" id="repassword" class="form-control" required minlength="8">
-            </div>
-            <input type="submit" value="Register" name="register" class="btn btn-success">
-        </form>
-    </div>
-    <!-- <?php
-    // //Get information if this page was accessed from a failed request
-    //     session_start();
-    //     if(($_SESSION['invalid-data']) == 'Yes'){
-    //         $_SESSION['invalid-data'] = 'No';
-    //         $msg = "Username or Password Invalid, Please Try Again.";
-    //         echo "<script type='text/javascript'>alert('$msg');</script>";
-    //     }
-    ?> -->
-     <?php
+    <?php
     //Get information if this page was accessed from a failed request
         session_start();
-        if(($_SESSION['invalid-data']) == 'Yes'){
+        if(isset(($_SESSION['invalid-data'])) == 'Yes'){
             $_SESSION['invalid-data'] = 'No';
             $msg = "Passwords do not match, Please Try Again.";
             echo "<script type='text/javascript'>alert('$msg');</script>";
         }
     ?>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

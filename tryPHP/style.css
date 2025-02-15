@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body, html {
@@ -16,9 +17,11 @@ body, html {
     align-items: center;
     width: 100%;
     height: 100%;
+    padding: 10px 20px;
+    margin: auto auto;
 }
 
-.registration-form {
+.form {
     background: rgba(0, 0, 0, 0.75);
     padding: 20px 30px;
     border-radius: 10px;
@@ -27,15 +30,45 @@ body, html {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.registration-form h1{
+.form h1{
     font-size: 24px;
     margin-bottom: 20px;
-    color: #fff;
+    color: #ffc107;
 }
 
 .form-group {
     margin-bottom: 15px;
-    text-align: left;
+    position: relative;
+}
+
+.pw-wrap {
+    position: relative;
+}
+
+#eyeicon {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 1.5rem;
+    align-items: center;
+}
+
+#eyeicon2 {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 1.5rem;
+    align-items: center;
+}
+
+.form-group img {
+    width: 20px;
+    cursor: pointer;
+    position: absolute;
 }
 
 .form-group label {
@@ -49,7 +82,7 @@ body, html {
     width: 100%;
     padding: 10px;
     font-size: 14px;
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0) !important;
     color: rgba(212, 175, 55, 0.85);
     border: 1px solid rgba(212, 175, 55, 0.8);
     border-radius: 8px;
@@ -66,20 +99,22 @@ body, html {
     color: rgba(255, 255, 255, 0.7);
 }
 
-.registerbtn {
+
+.button {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    background: rgba(0, 121, 107, 0.8);
+    background: rgba(212, 175, 55, 0.85);
     color: #fff;
-    border: 1px solid rgba(0, 121, 107, 0.9);
+    border: 2px solid rgba(212, 175, 55, 0.8);
     cursor: pointer;
     transition: background 0.3s, border-color 0.3s, transform 0.2s;
+    font-weight: bold;
 }
 
-.registerbtn:hover {
-    background: rgba(0, 121, 107, 1);
-    border-color: rgba(0, 121, 107, 1);
+.button:hover {
+    background: rgb(212, 175, 55);
+    border-color: rgba(212, 175, 55, 1);
     transform: scale(1.03);
 }
 
